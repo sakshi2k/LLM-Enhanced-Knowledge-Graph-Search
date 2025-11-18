@@ -1,0 +1,311 @@
+{
+  "nodes": [
+    {
+      "id": "doc:0",
+      "type": "Document",
+      "title": "Palazzo Vecchio speech",
+      "date": "2025-10-29",
+      "label": "Palazzo Vecchio speech"
+    },
+    {
+      "id": "speech:0",
+      "type": "Speech",
+      "title": "Palazzo Vecchio speech",
+      "date": "2025-10-29",
+      "label": "Palazzo Vecchio speech"
+    },
+    {
+      "id": "date:2025_10_29",
+      "type": "Date",
+      "value": "2025-10-29",
+      "label": "2025-10-29"
+    },
+    {
+      "id": "person:christine_lagarde",
+      "type": "Person",
+      "name": "Christine Lagarde",
+      "label": "Christine Lagarde"
+    },
+    {
+      "id": "person:remarks_remarks",
+      "type": "PERSON",
+      "name": "Remarks Remarks...",
+      "label": "Remarks Remarks..."
+    },
+    {
+      "id": "date:october_2025",
+      "type": "DATE",
+      "name": "October 2025",
+      "label": "October 2025"
+    },
+    {
+      "id": "org:european_central_bank",
+      "type": "ORG",
+      "name": "ECB",
+      "label": "ECB"
+    },
+    {
+      "id": "org:padraig_o_huiginn",
+      "type": "ORG",
+      "name": "Pádraig Ó hUiginn",
+      "label": "Pádraig Ó hUiginn"
+    },
+    {
+      "id": "topic:palazzo_vecchio_speech_remarks_remarks",
+      "type": "Topic",
+      "name": "Palazzo Vecchio speech Remarks Remarks",
+      "label": "Palazzo Vecchio speech Remarks Remarks"
+    },
+    {
+      "id": "topic:29_october",
+      "type": "Topic",
+      "name": "29 October",
+      "label": "29 October"
+    },
+    {
+      "id": "topic:pleasure",
+      "type": "Topic",
+      "name": "pleasure",
+      "label": "pleasure"
+    },
+    {
+      "id": "topic:ecb",
+      "type": "Topic",
+      "name": "ECB",
+      "label": "ECB"
+    },
+    {
+      "id": "topic:european_central_bank",
+      "type": "Topic",
+      "name": "European Central Bank",
+      "label": "European Central Bank"
+    },
+    {
+      "id": "doc:1",
+      "type": "Document",
+      "title": "Banking update",
+      "date": "2024-05-12",
+      "label": "Banking update"
+    },
+    {
+      "id": "speech:1",
+      "type": "Speech",
+      "title": "Banking update",
+      "date": "2024-05-12",
+      "label": "Banking update"
+    },
+    {
+      "id": "date:2024_05_12",
+      "type": "Date",
+      "value": "2024-05-12",
+      "label": "2024-05-12"
+    },
+    {
+      "id": "person:john_doe",
+      "type": "Person",
+      "name": "John Doe",
+      "label": "John Doe"
+    },
+    {
+      "id": "org:the_european_central_bank",
+      "type": "ORG",
+      "name": "The European Central Bank",
+      "label": "The European Central Bank"
+    },
+    {
+      "id": "topic:ecbs_policy",
+      "type": "Topic",
+      "name": "ECB's policy",
+      "label": "ECB's policy"
+    },
+    {
+      "id": "topic:action_europeans_people",
+      "type": "Topic",
+      "name": "action European's people",
+      "label": "action European's people"
+    }
+  ],
+  "edges": [
+    {
+      "source": "doc:0",
+      "target": "speech:0",
+      "relation": "same_as",
+      "source_row": 0
+    },
+    {
+      "source": "doc:0",
+      "target": "person:remarks_remarks",
+      "relation": "mentions",
+      "source_row": 0,
+      "sentence_index": 0
+    },
+    {
+      "source": "doc:0",
+      "target": "date:october_2025",
+      "relation": "mentions",
+      "source_row": 0,
+      "sentence_index": 1
+    },
+    {
+      "source": "doc:0",
+      "target": "org:european_central_bank",
+      "relation": "mentions",
+      "source_row": 0,
+      "sentence_index": 2
+    },
+    {
+      "source": "doc:0",
+      "target": "org:european_central_bank",
+      "relation": "mentions",
+      "source_row": 0,
+      "sentence_index": 2
+    },
+    {
+      "source": "doc:0",
+      "target": "org:padraig_o_huiginn",
+      "relation": "mentions",
+      "source_row": 0,
+      "sentence_index": 3
+    },
+    {
+      "source": "speech:0",
+      "target": "date:2025_10_29",
+      "relation": "held_on",
+      "source_row": 0
+    },
+    {
+      "source": "speech:0",
+      "target": "topic:palazzo_vecchio_speech_remarks_remarks",
+      "relation": "discusses",
+      "source_row": 0
+    },
+    {
+      "source": "speech:0",
+      "target": "topic:29_october",
+      "relation": "discusses",
+      "source_row": 0
+    },
+    {
+      "source": "speech:0",
+      "target": "topic:pleasure",
+      "relation": "discusses",
+      "source_row": 0
+    },
+    {
+      "source": "speech:0",
+      "target": "topic:ecb",
+      "relation": "discusses",
+      "source_row": 0
+    },
+    {
+      "source": "speech:0",
+      "target": "topic:european_central_bank",
+      "relation": "discusses",
+      "source_row": 0
+    },
+    {
+      "source": "person:christine_lagarde",
+      "target": "speech:0",
+      "relation": "delivered",
+      "source_row": 0
+    },
+    {
+      "source": "person:christine_lagarde",
+      "target": "topic:palazzo_vecchio_speech_remarks_remarks",
+      "relation": "covers",
+      "source_row": 0
+    },
+    {
+      "source": "person:christine_lagarde",
+      "target": "topic:29_october",
+      "relation": "covers",
+      "source_row": 0
+    },
+    {
+      "source": "person:christine_lagarde",
+      "target": "topic:pleasure",
+      "relation": "covers",
+      "source_row": 0
+    },
+    {
+      "source": "person:christine_lagarde",
+      "target": "topic:ecb",
+      "relation": "covers",
+      "source_row": 0
+    },
+    {
+      "source": "person:christine_lagarde",
+      "target": "topic:european_central_bank",
+      "relation": "covers",
+      "source_row": 0
+    },
+    {
+      "source": "doc:1",
+      "target": "speech:1",
+      "relation": "same_as",
+      "source_row": 1
+    },
+    {
+      "source": "doc:1",
+      "target": "org:european_central_bank",
+      "relation": "mentions",
+      "source_row": 1,
+      "sentence_index": 0
+    },
+    {
+      "source": "doc:1",
+      "target": "org:the_european_central_bank",
+      "relation": "mentions",
+      "source_row": 1,
+      "sentence_index": 1
+    },
+    {
+      "source": "speech:1",
+      "target": "date:2024_05_12",
+      "relation": "held_on",
+      "source_row": 1
+    },
+    {
+      "source": "speech:1",
+      "target": "topic:ecbs_policy",
+      "relation": "discusses",
+      "source_row": 1
+    },
+    {
+      "source": "speech:1",
+      "target": "topic:european_central_bank",
+      "relation": "discusses",
+      "source_row": 1
+    },
+    {
+      "source": "speech:1",
+      "target": "topic:action_europeans_people",
+      "relation": "discusses",
+      "source_row": 1
+    },
+    {
+      "source": "person:john_doe",
+      "target": "speech:1",
+      "relation": "delivered",
+      "source_row": 1
+    },
+    {
+      "source": "person:john_doe",
+      "target": "topic:ecbs_policy",
+      "relation": "covers",
+      "source_row": 1
+    },
+    {
+      "source": "person:john_doe",
+      "target": "topic:european_central_bank",
+      "relation": "covers",
+      "source_row": 1
+    },
+    {
+      "source": "person:john_doe",
+      "target": "topic:action_europeans_people",
+      "relation": "covers",
+      "source_row": 1
+    }
+  ]
+}

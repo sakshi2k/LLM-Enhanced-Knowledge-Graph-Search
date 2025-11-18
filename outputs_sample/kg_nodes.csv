@@ -1,0 +1,21 @@
+id,label,name,title,date
+doc:0,Document,Palazzo Vecchio speech,Palazzo Vecchio speech,2025-10-29
+speech:0,Speech,Palazzo Vecchio speech,Palazzo Vecchio speech,2025-10-29
+date:2025_10_29,Date,2025-10-29,,
+person:christine_lagarde,Person,Christine Lagarde,,
+person:remarks_remarks,PERSON,Remarks Remarks...,,
+date:october_2025,DATE,October 2025,,
+org:european_central_bank,ORG,ECB,,
+org:padraig_o_huiginn,ORG,Pádraig Ó hUiginn,,
+topic:palazzo_vecchio_speech_remarks_remarks,Topic,Palazzo Vecchio speech Remarks Remarks,,
+topic:29_october,Topic,29 October,,
+topic:pleasure,Topic,pleasure,,
+topic:ecb,Topic,ECB,,
+topic:european_central_bank,Topic,European Central Bank,,
+doc:1,Document,Banking update,Banking update,2024-05-12
+speech:1,Speech,Banking update,Banking update,2024-05-12
+date:2024_05_12,Date,2024-05-12,,
+person:john_doe,Person,John Doe,,
+org:the_european_central_bank,ORG,The European Central Bank,,
+topic:ecbs_policy,Topic,ECB's policy,,
+topic:action_europeans_people,Topic,action European's people,,
