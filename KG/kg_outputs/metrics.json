@@ -1,0 +1,91 @@
+{
+  "graph": {
+    "nodes": 11013,
+    "edges": 14724,
+    "density": 0.000243,
+    "components": 1,
+    "largest_component_size": 11013,
+    "largest_component_ratio": 1.0,
+    "diameter": 8,
+    "radius": 4,
+    "average_clustering": 0.0,
+    "average_degree": 2.67,
+    "average_in_degree": 1.34,
+    "average_out_degree": 1.34,
+    "nodes_by_type": {
+      "Speaker": 29,
+      "Speech": 2945,
+      "Topic": 5785,
+      "Date": 2254
+    },
+    "edges_by_type": {
+      "delivered": 2945,
+      "covers": 8834,
+      "held_on": 2945
+    }
+  },
+  "precision_recall_f1": {
+    "schema_compliance": {
+      "node_types": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "edge_types": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "completeness": {
+      "speaker_relation": 1.0,
+      "date_relation": 1.0,
+      "topic_relation": 1.0,
+      "overall": 1.0
+    },
+    "accuracy": {
+      "date_parsing": 1.0
+    },
+    "macro_f1": 1.0
+  },
+  "entity_resolution": {
+    "speakers": {
+      "unique_entities": 29,
+      "total_nodes": 29,
+      "aliases_resolved": 0,
+      "resolution_ratio": 1.0
+    },
+    "topics": {
+      "unique_entities": 5785,
+      "total_nodes": 5785,
+      "aliases_resolved": 6887,
+      "resolution_ratio": 1.0
+    }
+  },
+  "topics": {
+    "avg_intra_similarity": 0.9888,
+    "avg_inter_similarity": 0.1609,
+    "topic_nodes": 5785,
+    "coherence_ratio": 6.1467
+  },
+  "dates": {
+    "success": 2952
+  },
+  "abbreviations": {
+    "ecb": 33420,
+    "us": 9479,
+    "eba": 282,
+    "eu": 10207,
+    "srep": 130,
+    "fed": 420,
+    "dlt": 264,
+    "vol": 1940,
+    "gdp": 4297,
+    "fx": 48,
+    "uk": 548,
+    "eurozone": 250,
+    "cb": 4,
+    "vol.": 12,
+    "u.s.": 9
+  }
+}
