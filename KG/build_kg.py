@@ -16,10 +16,9 @@ import csv
 import json
 import os
 import re
-from collections import Counter, defaultdict
+from collections import Counter
 from dataclasses import dataclass
-from datetime import datetime
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Dict, List, Optional, Sequence, Tuple
 
 import networkx as nx
 import numpy as np
@@ -206,12 +205,14 @@ class TopicExtractor:
             convert_to_numpy=True,
             normalize_embeddings=True,
         )
+        embeddings = embeddings.astype(np.float64)          # Convert embeddings to float64 for centroid math (optional but reduces numeric drift).
         clusters: List[Dict[str, object]] = []
         for phrase, vector in zip(phrases, embeddings):
             assigned = False
             for cluster in clusters:
                 centroid = cluster["centroid"]  # type: ignore[assignment]
-                score = float(np.dot(vector, centroid))
+                # score = float(np.dot(vector, centroid))
+                score = float(np.clip(np.dot(vector, centroid), -1.0, 1.0))     # needed else avg_score can slightly exceed 1 due to FP rounding. "This basically clamps cosine scores to [-1, 1] immediately after computation."
                 if score >= self.cluster_threshold:
                     cluster["members"].append((phrase, vector))
                     cluster["centroid"] = self._normalized_centroid(
@@ -327,8 +328,13 @@ class KnowledgeGraphBuilder:
             return topic_id
         matrix = np.vstack(self.topic_registry_vectors)
         sims = cosine_similarity([vector], matrix)[0]
+        sims = np.clip(sims, -1.0, 1.0)         # needed else can contain values like 1.000000238418579 from sklearn/numpy FP ops.
+
         best_idx = int(np.argmax(sims))
-        best_score = float(sims[best_idx])
+        # best_score = float(sims[best_idx])
+        best_score = float(round(sims[best_idx], 5))
+
+        
         if best_score >= self.topic_threshold:
             topic_id = self.topic_registry_ids[best_idx]
             self.topic_counts[topic_id] += 1
@@ -337,9 +343,20 @@ class KnowledgeGraphBuilder:
                 self.topic_aliases[topic_id]
             )
             self.graph.nodes[topic_id]["mentions"] = self.topic_counts[topic_id]
-            self.graph.nodes[topic_id]["confidence"] = (
-                self.graph.nodes[topic_id].get("confidence", topic.score) + topic.score
-            ) / 2
+            # self.graph.nodes[topic_id]["confidence"] = (
+            #     self.graph.nodes[topic_id].get("confidence", topic.score) + topic.score
+            # ) / 2
+            
+            # clean confidence merge
+            prev = float(self.graph.nodes[topic_id].get("confidence", topic.score))
+            new  = float(topic.score)
+
+            merged = (prev + new) / 2.0
+            merged = float(np.clip(merged, -1.0, 1.0))
+            merged = round(merged, 5)
+
+            self.graph.nodes[topic_id]["confidence"] = merged
+
             self.topic_registry_vectors[best_idx] = self._normalize_vector(
                 (
                     self.topic_registry_vectors[best_idx]
@@ -736,6 +753,7 @@ def load_dataframe(path: str, delimiter: str, sample_size: Optional[int]) -> pd.
 
 
 def build_pipeline(args: argparse.Namespace):
+    print("Starting knowledge graph construction pipeline...")
     abbr_map = DEFAULT_ABBREVIATIONS.copy()
     abbr_map.update(read_abbreviation_config(args.abbreviation_config))
     expander = AbbreviationExpander(abbr_map)
@@ -744,18 +762,21 @@ def build_pipeline(args: argparse.Namespace):
     nlp = spacy.load("en_core_web_lg")
     nlp.max_length = 3_000_000
     embedder = SentenceTransformer(args.embedding_model)
+    print(f"Loaded spaCy model 'en_core_web_lg' and SentenceTransformer model '{args.embedding_model}'")
     topic_extractor = TopicExtractor(
         nlp,
         embedder,
         max_topics=args.max_topics,
         cluster_threshold=args.topic_cluster_threshold,
     )
+    print("Processing input data and building knowledge graph...")
     kg_builder = KnowledgeGraphBuilder(
         embedder,
         topic_threshold=args.topic_merge_threshold,
     )
     df = load_dataframe(args.input, args.delimiter, args.sample_size)
-    tqdm.pandas(desc="Processing speeches")
+    print("Processing speeches data...")
+    tqdm.pandas(desc="Processing speeches data")
     for idx, row in tqdm(
         df.iterrows(),
         total=len(df),
@@ -784,6 +805,7 @@ def build_pipeline(args: argparse.Namespace):
     metrics["abbreviations"] = expander.stats
     
     # Save metrics to JSON
+    print("Computing and exporting evaluation metrics...")
     metrics_path = os.path.join(args.output_dir, "metrics.json")
     with open(metrics_path, "w", encoding="utf-8") as fh:
         json.dump(metrics, fh, indent=2)
@@ -907,7 +929,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build an ECB knowledge graph.")
     parser.add_argument(
         "--input",
-        required=True,
+        default="./all_ECB_speeches.csv",
+        # required=True,
         help="Path to the ECB speeches CSV.",
     )
     parser.add_argument(

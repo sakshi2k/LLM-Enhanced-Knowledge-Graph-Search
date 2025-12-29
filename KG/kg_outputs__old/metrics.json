@@ -1,21 +1,21 @@
 {
   "graph": {
-    "nodes": 10477,
+    "nodes": 11013,
     "edges": 14724,
-    "density": 0.000268,
+    "density": 0.000243,
     "components": 1,
-    "largest_component_size": 10477,
+    "largest_component_size": 11013,
     "largest_component_ratio": 1.0,
-    "diameter": 7,
+    "diameter": 8,
     "radius": 4,
     "average_clustering": 0.0,
-    "average_degree": 2.81,
-    "average_in_degree": 1.41,
-    "average_out_degree": 1.41,
+    "average_degree": 2.67,
+    "average_in_degree": 1.34,
+    "average_out_degree": 1.34,
     "nodes_by_type": {
       "Speaker": 29,
       "Speech": 2945,
-      "Topic": 5249,
+      "Topic": 5785,
       "Date": 2254
     },
     "edges_by_type": {
@@ -29,27 +29,12 @@
       "node_types": {
         "precision": 1.0,
         "recall": 1.0,
-        "f1": 1.0,
-        "note": "Measures if expected node types exist in graph (schema compliance, not extraction quality)"
+        "f1": 1.0
       },
       "edge_types": {
         "precision": 1.0,
         "recall": 1.0,
-        "f1": 1.0,
-        "note": "Measures if expected edge types exist in graph (schema compliance, not extraction quality)"
-      },
-      "coverage": {
-        "node_types": {
-          "Speaker": 29,
-          "Speech": 2945,
-          "Date": 2254,
-          "Topic": 5249
-        },
-        "edge_types": {
-          "held_on": 2945,
-          "delivered": 2945,
-          "covers": 8834
-        }
+        "f1": 1.0
       }
     },
     "completeness": {
@@ -71,17 +56,17 @@
       "resolution_ratio": 1.0
     },
     "topics": {
-      "unique_entities": 5249,
-      "total_nodes": 5249,
-      "aliases_resolved": 5728,
+      "unique_entities": 5785,
+      "total_nodes": 5785,
+      "aliases_resolved": 6887,
       "resolution_ratio": 1.0
     }
   },
   "topics": {
-    "avg_intra_similarity": 0.9911,
-    "avg_inter_similarity": 0.151,
-    "topic_nodes": 5249,
-    "coherence_ratio": 6.5635
+    "avg_intra_similarity": 0.9888,
+    "avg_inter_similarity": 0.1609,
+    "topic_nodes": 5785,
+    "coherence_ratio": 6.1467
   },
   "dates": {
     "success": 2952
