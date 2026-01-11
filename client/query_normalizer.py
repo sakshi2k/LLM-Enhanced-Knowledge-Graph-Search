@@ -3,6 +3,7 @@ import re, json, unicodedata
 from difflib import get_close_matches
 from dateutil import parser as dateparser
 from sample_input_jsons_for_dev.speakers_list import speakers
+import pandas as pd
 
 
 def norm_name(n):
