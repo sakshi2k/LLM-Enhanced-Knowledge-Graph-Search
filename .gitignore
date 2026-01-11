@@ -1,0 +1,8 @@
+client/__pycache__/*
+client/.env
+
+app/__pycache__/*
+app/queries/__pycache__/cypher_queries.cpython-313.pyc
+app/kg_outputs/.DS_Store
+app/.env
+.DS_Store
