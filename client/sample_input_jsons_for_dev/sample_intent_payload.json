@@ -1,0 +1,51 @@
+{
+  "raw_query": "what ECB president said recently about inflation risks in 2019-2020",
+  "canonical_query": "intent=quote_search; indicators=Inflation; date_from=2019-01-01,date_to=2020-12-31",
+  "expanded_query": "what European Central Bank president said recently about inflation risks in 2019-2020",
+  "intent": { "label": "quote_search", "confidence": 0.7 },
+  "entities": [
+    {
+      "text": "inflation",
+      "type": "indicator",
+      "canonical": "Inflation",
+      "id": "inflation",
+      "confidence": 0.95
+    }
+  ],
+  "date_range": { "start": "2019-01-01", "end": "2020-12-31" },
+  "transform_log": [
+    {
+      "step": "unicode_normalize",
+      "input": "what ECB president said recently about inflation risks in 2019-2020",
+      "output": "what ECB president said recently about inflation risks in 2019-2020"
+    },
+    {
+      "step": "abbreviation_expansion",
+      "input": "ECB",
+      "output": "European Central Bank",
+      "confidence": 0.95
+    },
+    {
+      "step": "intent_detection",
+      "output": { "label": "quote_search", "confidence": 0.7 }
+    },
+    {
+      "step": "date_normalize",
+      "input": "2019-2020",
+      "output": { "start": "2019-01-01", "end": "2020-12-31" },
+      "confidence": 0.95
+    },
+    {
+      "step": "indicator_extraction",
+      "output": [
+        {
+          "text": "inflation",
+          "canonical": "Inflation",
+          "id": "inflation",
+          "confidence": 0.95
+        }
+      ]
+    }
+  ],
+  "confidence": 0.825
+}
