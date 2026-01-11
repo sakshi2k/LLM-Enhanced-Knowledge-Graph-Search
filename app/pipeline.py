@@ -41,28 +41,3 @@ class SearchPipeline:
             "verified": verify_results(formatted)
         }
 
-
-
-# class SearchPipeline:
-#     def __init__(self, driver):
-#         self.retriever = TopicFullTextRetriever(driver)
-#         self.executor = KGExecutor(driver)
-
-#     def run(self, query: str):
-#         topic_ids = self.retriever.retrieve_topic_ids(query)
-
-#         if not topic_ids:
-#             return {
-#                 "query": query,
-#                 "results": [],
-#                 "verified": False
-#             }
-
-#         rows = self.executor.fetch_grounded_speeches(topic_ids)
-#         formatted = format_results(query, rows)
-
-#         return {
-#             "query": query,
-#             "results": formatted,
-#             "verified": verify_results(formatted)
-#         }
