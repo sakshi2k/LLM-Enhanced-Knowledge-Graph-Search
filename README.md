@@ -1,3 +1,8 @@
+### Feature based branches
+- Branch for UI (search interface), Backend API implentation and neo4j Database : main
+- Branch for KG generation : feature/KG-generation  
+- Branch containing neo4j data upload queries : feature/data_upload_neo4j
+
 ### Steps to start docker for neo4j
 - docker compose up -d
 - docker compose stop
